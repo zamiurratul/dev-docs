@@ -43,6 +43,15 @@ curl --user xyz:abc123 --header "Content-Type: text/xml;charset=UTF-8" --header 
 curl --user xyz:abc123 --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction:Get" --data @test.xml https://<instance_name>.service-now.com/incident.do?SOAP -v
 
 
+## Utilities:
+
+##### How to save output from curl to a file
+curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: TEST_SOAP" --data @request.xml http://demo7129263.mockable.io/ -o output.txt 
+
+##### How to create mock web service-now
+- www.mockable.io
+- www.mocky.io
+
 
 ## Exceptions:
 
