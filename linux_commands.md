@@ -22,3 +22,6 @@
 ### login as super user
 `su -`
 
+### change ownership of a file
+`chown appadmin:appadmin /etc/init.d/upsservice`
+
