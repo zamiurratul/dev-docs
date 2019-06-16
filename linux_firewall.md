@@ -1,4 +1,4 @@
-## UFW - Uncomplicated Firewal
+## UFW - Uncomplicated Firewall
 
 ### install
 `apt install ufw`
@@ -13,7 +13,7 @@
 ### status
 `ufw status`  
 `ufw status verbose`  
-`sudo ufw status numbered`
+`ufw status numbered`
 
 ### delete a rule
 `ufw delete 2`  
