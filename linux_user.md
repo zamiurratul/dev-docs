@@ -1,4 +1,4 @@
-## systemstl
+## user
 
 ### add a user
 `adduser ratul`
