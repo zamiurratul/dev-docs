@@ -1,18 +1,39 @@
 ## UFW - Uncomplicated Firewal
 
+### install
+`apt install ufw`
+
 ### enable / disable
 `ufw enable`  
 `ufw disable`
 
+### reset
+`ufw reset`
+
 ### status
 `ufw status`  
 `ufw status verbose`  
+`sudo ufw status numbered`
+
+### delete a rule
+`ufw delete 2`  
+`ufw delete allow 8069` 
 
 ### list
 `ufw app list`
 
+### app info
+`ufw app info 'Nginx Full'`
+
 ### allow an app
 `ufw allow OpenSSH`
+
+### allow a port
+`ufw allow 8080/tcp`
+
+### allow port ranges
+`ufw allow 7100:7200/tcp`  
+`ufw allow 7100:7200/udp`
 
 ###  block an ip address
 To block all network connections that originate from a specific IP address, 15.15.15.51 for example, run this command:  
