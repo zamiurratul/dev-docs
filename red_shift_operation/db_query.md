@@ -1,7 +1,6 @@
 ## PROCESS_LOG
 ```sql
-select request_id, action_id, (api_req_time - bll_req_time) as KAFKA_TIME, (api_resp_time - api_req_time) as API_TIME, bll_ip, node_ip, status, error_details as error
-from ext_node_call_log
+select request_id, action_id, (api_req_time - bll_req_time) as KAFKA_TIME, (api_resp_time - api_req_time) as API_TIME, bll_ip, node_ip, status, error_details from ext_node_call_log
 where nll_transaction_id = 'MF1574067873';
 ```
 
@@ -38,4 +37,38 @@ nll_transaction_id in (select nll_transaction_id
 from summary_txn_log log
 where msisdn = '8801843930109' 
 order by request_date desc fetch next 30 rows only);
+```
+
+### LAST_10_HISTORY_FOR_MSISDN
+```sql
+select (select process_name from process where process.process_id = log.process_id), status, error_code, error_details 
+from summary_txn_log log
+where msisdn = '8801843930109' 
+order by request_date desc fetch next 10 rows only;
+```
+
+### ALL_FAIL_FOR_TODAY
+```sql
+select error_details , count(*)
+from summary_txn_log log
+where 
+trunc(request_date) = (select trunc(sysdate) from dual) and status = 'FAILED'  GROUP BY log.error_details;
+```
+
+### TIME_TOOK_BY_SERVER_AND_ACTION_AND_STATUS
+```sql
+select process_id, max (bll_resp_time) - min(bll_req_time) as TIME_TOOK
+from ext_node_call_log 
+where bll_ip = '10.101.2.72' and process_id in (100,101,119) and status = 'SUCCESSFUL' 
+group by process_id;
+```
+
+### FIND_ALL_BY_ERROR_MSG_OF_SMRY_TXN_LOG_FROM_EXT_NODE_CALL_LOG
+```sql
+select process_id, bll_req_time, request_id, nll_transaction_id, status, error_details, bll_ip, node_ip 
+from ext_node_call_log 
+where nll_transaction_id in 
+(select nll_transaction_id from summary_txn_log
+where error_details in ('Failed to check barring status in CRM', 'Null value for IMSI came from CRM.', 'Failed to swap imsi') 
+and trunc(request_date) = (select trunc(sysdate) from dual));
 ```
