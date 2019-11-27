@@ -4,8 +4,8 @@ port=0
 file_name="unknown"
 jar_version="0.0.1"
 services=( "$@" )
-deployment_profile="prod"
-parent_dir="data/all_bll_services"
+deployment_profile="test"
+parent_dir="data01/all_services"
 
 assignPort() {
 	if [ $1 == "bll" ]

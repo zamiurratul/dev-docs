@@ -72,3 +72,12 @@ where nll_transaction_id in
 where error_details in ('Failed to check barring status in CRM', 'Null value for IMSI came from CRM.', 'Failed to swap imsi') 
 and trunc(request_date) = (select trunc(sysdate) from dual));
 ```
+
+### VIEW_ALL_TRANSACTIONS
+```sql
+select REQUEST_DATE, (select PROCESS.PROCESS_NAME from PROCESS where log.PROCESS_ID = PROCESS.PROCESS_ID) as PROCESS, STATUS, ERROR_CODE, ERROR_DETAILS, BLL_REQUEST_ID, NLL_TRANSACTION_ID
+from summary_txn_log log
+where
+trunc(request_date) = (select trunc(sysdate) from dual)
+order by REQUEST_DATE desc;
+```
