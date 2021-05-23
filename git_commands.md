@@ -6,3 +6,7 @@
 
 ## Revert a file to specific branch
 `git checkout develop -- file/to/restore`
+
+## Update feature branch with develop
+`git checkout feature1`
+`git merge develop`
