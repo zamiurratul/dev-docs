@@ -25,3 +25,9 @@
 ### change ownership of a file
 `chown appadmin:appadmin /etc/init.d/upsservice`
 
+### targz a file
+`tar -zcvf bll_deployment.tar.gz bll_deployment`
+
+### extract targz file
+`tar -xf bll_deployment.tar.gz`
+
