@@ -31,3 +31,9 @@
 ### extract targz file
 `tar -xf bll_deployment.tar.gz`
 
+### find files under a directory
+`find . -name *ff8819cc-22bd-49eb-9220-e0c923*.txt`
+
+### copy file
+`cp -p /data/ff8819cc-22bd-49eb-9220-e0c923_1580220067492.txt /data/files/`
+

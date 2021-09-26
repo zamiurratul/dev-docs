@@ -1,0 +1,6 @@
+17:07
+Version Control window has been redesigned, you can find "Local Changes" under "Commit" tab on left side of the window next to the Project tab.
+
+You can see what's new here: https://www.jetbrains.com/idea/whatsnew/#version-control
+
+If you want to restore old view then you need to disable "use non-modal commit interface" under Preferences | Version Control | Commit
