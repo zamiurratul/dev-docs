@@ -4,3 +4,10 @@ Version Control window has been redesigned, you can find "Local Changes" under "
 You can see what's new here: https://www.jetbrains.com/idea/whatsnew/#version-control
 
 If you want to restore old view then you need to disable "use non-modal commit interface" under Preferences | Version Control | Commit
+
+
+
+
+==============
+Adjust number of open tabs
+In the Settings/Preferences dialog ( Ctrl+Alt+S ) , go to Editor | General | Editor Tabs
